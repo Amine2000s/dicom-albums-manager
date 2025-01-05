@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="sideBar" prefHeight="461.0" prefWidth="131.0" style="-fx-background-color: bleu;">
+         <children>
+            <Button layoutX="14.0" layoutY="422.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Settings" />
+            <Button layoutX="14.0" layoutY="68.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Albums" />
+            <Button layoutX="14.0" layoutY="103.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Files" />
+         </children>
+      </Pane>
+      <Pane fx:id="mainBar" layoutX="131.0" prefHeight="461.0" prefWidth="511.0">
+         <children>
+            <ImageView fitHeight="455.0" fitWidth="502.0" layoutX="5.0" layoutY="3.0" pickOnBounds="true" smooth="false" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
