@@ -1,0 +1,62 @@
+/* General Styles */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-padding: 10;
+    -fx-background-color: #f9f9f9;
+}
+
+/* Header Label */
+.header-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Section Label */
+.section-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555;
+}
+
+/* ListView */
+.list-view {
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-color: #fff;
+}
+
+/* TableView */
+.table-view {
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-color: #fff;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #0078d7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+}
+
+.button:hover {
+    -fx-background-color: #005a9e;
+}
+
+/* TextField */
+.text-field {
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+    -fx-background-color: #fff;
+}
+
+/* GridPane Labels */
+.grid-pane > .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}

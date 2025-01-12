@@ -5,4 +5,7 @@ module com.chabiamin.dicomalbumsmanager {
                             
     opens com.chabiamin.dicomalbumsmanager to javafx.fxml;
     exports com.chabiamin.dicomalbumsmanager;
+    exports com.chabiamin.dicomalbumsmanager.Controller;
+    opens com.chabiamin.dicomalbumsmanager.Controller to javafx.fxml;
+
 }

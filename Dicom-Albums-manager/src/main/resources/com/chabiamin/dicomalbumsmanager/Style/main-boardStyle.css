@@ -1,0 +1,26 @@
+.header {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+}
+.title {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-alignment: center-left;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.sidebar {
+    -fx-background-color: #34495e;
+    -fx-padding: 10;
+    -fx-spacing: 10;
+}
+.sidebar Button {
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10;
+}
