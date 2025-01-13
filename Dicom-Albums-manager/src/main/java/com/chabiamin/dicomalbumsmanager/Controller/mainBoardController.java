@@ -27,7 +27,7 @@ public class mainBoardController implements Initializable {
     Button metaDataQueryButton ;
 
     public void showMetadataQuery() {
-        loadView("metaData.fxml");
+        loadView("fileManagment.fxml");
     }
 
     public void showAlbumManagement() {
@@ -41,10 +41,11 @@ public class mainBoardController implements Initializable {
     private void loadView(String fxmlPath){
         try{
             Parent view = FXMLLoader.load(HelloApplication.class.getResource(fxmlPath));
-            mainPane.getChildren().setAll(view);
+            //mainPane.getChildren().setAll(view);
             Stage ST = new Stage();
+            Scene sc = new Scene(view);
             ST.setTitle("main-board");
-            ST.setScene(view.getScene());
+            ST.setScene(sc);
             ST.show();
         }catch( IOException e ){
             e.printStackTrace();

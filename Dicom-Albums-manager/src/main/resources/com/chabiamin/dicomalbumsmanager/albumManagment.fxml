@@ -13,56 +13,74 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="611.0" prefWidth="688.0" stylesheets="@Style/albumManagmentStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <Label styleClass="header-label" text="Album Management" />
-        <HBox spacing="10">
-            <TextField fx:id="searchField" promptText="Search Albums..." />
-            <Button text="Create Album" />
-            <Button text="Delete Album" />
-            <Button text="Export Album" />
-        </HBox>
-    </VBox>
-
-    <HBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-        <!-- Album List Panel -->
-        <VBox prefWidth="200" spacing="10">
-            <Label styleClass="section-label" text="Albums" />
-            <ListView fx:id="albumListView" />
-        </VBox>
-
-        <!-- Selected Album Details Panel -->
-        <VBox spacing="10" HBox.hgrow="ALWAYS">
-            <Label styleClass="section-label" text="Selected Album Details" />
-            <GridPane hgap="10" vgap="10">
-                <Label text="Name:" />
-                <Label fx:id="albumNameLabel" GridPane.columnIndex="1" />
-                <Label text="Created:" />
-                <Label fx:id="albumDateLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label text="Images:" />
-                <Label fx:id="albumImageCountLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-            </rowConstraints>
-            </GridPane>
-            <TableView fx:id="albumImagesTable" VBox.vgrow="ALWAYS">
-                <columns>
-                    <TableColumn fx:id="fileNameColumn" text="File Name" />
-                    <TableColumn fx:id="modalityColumn" text="Modality" />
-                    <TableColumn fx:id="patientIdColumn" text="Patient ID" />
-                </columns>
-            </TableView>
+<AnchorPane prefHeight="611.0" prefWidth="688.0" stylesheets="@Style/albumManagmentStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chabiamin.dicomalbumsmanager.Controller.albumManagement">
+    <!-- Main Container -->
+    <VBox spacing="15" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <!-- Header Section -->
+        <VBox spacing="10">
+            <HBox spacing="10" styleClass="directory-chooser-section">
+                <Label text="Directory:" />
+                <TextField fx:id="directoryPathField" editable="false" prefHeight="28.0" prefWidth="418.0" promptText="No directory selected" />
+                <Button fx:id="chooseDirectoryButton" styleClass="primary-button" text="Browse" />
+            </HBox>
+            <Label styleClass="header-label" text="Album Management" />
             <HBox spacing="10">
-                <Button text="Remove Selected" />
-                <Button text="View Image" />
+                <TextField fx:id="searchField" promptText="Search Albums..." />
+                <Button styleClass="primary-button" text="Create Album" />
+                <Button styleClass="danger-button" text="Delete Album" />
+                <Button styleClass="secondary-button" text="Export Album" />
             </HBox>
         </VBox>
-    </HBox>
 
+        <!-- Content Section -->
+        <HBox spacing="20" VBox.vgrow="ALWAYS">
+            <!-- Album List Panel -->
+            <VBox prefWidth="200" spacing="10" styleClass="album-list-panel">
+                <Label styleClass="section-label" text="Albums" />
+                <ListView fx:id="albumListView" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+            <!-- Selected Album Details Panel -->
+            <VBox spacing="10" styleClass="album-details-panel" HBox.hgrow="ALWAYS">
+                <Label styleClass="section-label" text="Selected Album Details" />
+                <GridPane hgap="20" vgap="10">
+                    <!-- First Row -->
+                    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="albumNameLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Second Row -->
+                    <Label text="Created:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="albumDateLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <!-- Third Row -->
+                    <Label text="Images:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="albumImageCountLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <columnConstraints>
+                        <!-- Label Column -->
+                        <ColumnConstraints halignment="RIGHT" minWidth="100" />
+
+                        <!-- Value Column -->
+                        <ColumnConstraints halignment="LEFT" minWidth="200" />
+                    </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+                <TableView fx:id="albumImagesTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="fileNameColumn" text="File Name" />
+                        <TableColumn fx:id="modalityColumn" text="Modality" />
+                        <TableColumn fx:id="patientIdColumn" text="Patient ID" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button styleClass="danger-button" text="Remove Selected" />
+                    <Button styleClass="primary-button" text="View Image" />
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
 </AnchorPane>
