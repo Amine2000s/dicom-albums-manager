@@ -21,3 +21,26 @@
     -fx-padding: 5 15;
     -fx-border-radius: 5px;
 }
+VBox {
+    -fx-padding: 15;
+    -fx-spacing: 15;
+}
+
+HBox {
+    -fx-spacing: 10;
+}
+
+Label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+TextField, DatePicker {
+    -fx-min-width: 150;
+}
+
+TitledPane {
+    -fx-font-size: 14px;
+    -fx-text-fill: #0078D7;
+    -fx-background-color: #f4f4f4;
+}

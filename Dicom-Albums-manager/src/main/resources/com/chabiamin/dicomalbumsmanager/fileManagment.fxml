@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -25,7 +26,7 @@
         </HBox>
 
         <!-- Query Input Form -->
-        <HBox alignment="CENTER_LEFT" spacing="10">
+       <!-- <HBox alignment="CENTER_LEFT" spacing="10">
             <Label text="Patient ID:" />
             <TextField fx:id="patientIdField" promptText="Enter Patient ID" />
 
@@ -36,8 +37,52 @@
             <DatePicker fx:id="studyDatePicker" />
 
             <Button styleClass="primary-button" text="Search" />
-        </HBox>
+        </HBox>-->
+        <VBox alignment="CENTER_LEFT" spacing="15" xmlns:fx="http://javafx.com/fxml">
+            <children>
+                <!-- Basic Fields in Horizontal Layout -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Patient ID:" />
+                    <TextField fx:id="patientIdField" promptText="Enter Patient ID" />
 
+                    <Label text="Modality:" />
+                    <TextField fx:id="modalityField" promptText="e.g., CT, MRI" />
+
+                    <Label text="Study Date:" />
+                    <DatePicker fx:id="studyDatePicker" />
+                </HBox>
+
+                <!-- Advanced Attributes Collapsible Section -->
+                <TitledPane expanded="false" text="Advanced Attributes">
+                    <content>
+                        <VBox alignment="CENTER_LEFT" spacing="10">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Age:" />
+                                <TextField fx:id="ageField" promptText="Enter Age" />
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Birth Date:" />
+                                <DatePicker fx:id="birthDatePicker" />
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Study Instance:" />
+                                <TextField fx:id="studyInstanceField" promptText="Enter Study Instance UID" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </TitledPane>
+            <HBox>
+               <children>
+      
+                      <!-- Search Button -->
+                      <Button fx:id="searchButton" styleClass="primary-button" text="Search" />
+                      <Button fx:id="clearButton" prefHeight="28.0" prefWidth="54.0" styleClass="secondary-button-button" text="Clear" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
         <!-- Results Table -->
         <TableView fx:id="resultsTable" prefHeight="400">
             <columns>
@@ -49,12 +94,13 @@
                 <TableColumn fx:id="patientIdColumn" prefWidth="150" text="Patient ID" />
                 <TableColumn fx:id="modalityColumn" prefWidth="100" text="Modality" />
                 <TableColumn fx:id="studyDateColumn" prefWidth="150" text="Study Date" />
+                <TableColumn fx:id="details" prefWidth="150" text="Details" />
             </columns>
         </TableView>
 
         <HBox alignment="CENTER_LEFT" spacing="10">
             <CheckBox fx:id="selectAllCheckbox" text="Select All" />
-            <Button styleClass="secondary-button" text="Add to Album" />
+            <Button styleClass="secondary-button" text="Add to Album" onAction="#handleAddToAlbum" />
             <Button text="View Details" />
         </HBox>
     </VBox>
