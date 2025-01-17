@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <VBox  >
+      <children>
+      
+                  <HBox>
+                      <Label text="Album Name:" />
+                      <TextField fx:id="albumNameField" promptText="Enter album name" />
+                  </HBox>
+      
+                  <HBox>
+                      <Label text="Description:" />
+                      <TextField fx:id="descriptionField" promptText="Enter album description" />
+                  </HBox>
+      
+                  <HBox>
+                      <Label text="Username:" />
+                      <TextField fx:id="usernameField" promptText="Enter your username" />
+                  </HBox>
+      
+                  <HBox spacing="10">
+                      <Button fx:id="createAlbumButton" text="Create Album" />
+                      <Button fx:id="cancelButton" text="Cancel" />
+                  </HBox>
+      </children>
+   </VBox>
+
+</AnchorPane>

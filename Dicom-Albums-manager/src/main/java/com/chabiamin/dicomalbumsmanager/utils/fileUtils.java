@@ -70,7 +70,7 @@ public class fileUtils {
                             String modality = attributes.getString(0x00080060);  // Modality
                             String protocolName = attributes.getString(0x00181030); // Study Date
                             /*attributes we will use them later on */
-                            dataList.add(new DicomData(false, dicomFile.getName(), patientId, modality, studyDate));
+                            dataList.add(new DicomData(false, dicomFile.getName(), patientId, modality, studyDate, dicomFile));
 
                             dis.close();
                         } catch (IOException e) {
@@ -111,4 +111,57 @@ public class fileUtils {
         return filtredList;
     }
 
+
+    public static File[] getAvailableDirectories(String directory) {
+        // Here, we return a list of directories within a specific folder (e.g., user home or album folder)
+
+        File homeDir = new File(directory);
+
+        // Check if the directory exists and is indeed a directory
+        if (homeDir.exists() && homeDir.isDirectory()) {
+            // List all files in the directory
+            return homeDir.listFiles(File::isDirectory);
+
+        } else {
+            System.out.println("The provided path is not a valid directory.");
+            return new File[0];
+        }
+
+
+    }
+/*
+    public static void openDirectoryChooser(Stage stage) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Choose Album Directory");
+        File selectedDirectory = directoryChooser.showDialog(stage);
+
+        if (selectedDirectory != null) {
+            directoryPathField.setText(selectedDirectory.getAbsolutePath());
+        }
+    }*/
+
+
+
+    public static ArrayList<File> getAlbumsWithMetadata(File selectedDirectoryy) {
+        ArrayList<File> albumsWithMetadata = new ArrayList<>();
+        //File rootDir = new File(rootDirectory);
+
+        // Check if the directory exists and is a directory
+        if (selectedDirectoryy.exists() && selectedDirectoryy.isDirectory()) {
+            // List all directories inside the root directory
+            File[] allFiles = selectedDirectoryy.listFiles(File::isDirectory);
+
+            // Iterate over all directories
+            if (allFiles != null) {
+                for (File album : allFiles) {
+                    // Check if metadata.json exists in the album directory
+                    File metadataFile = new File(album, "metadata.json");
+                    if (metadataFile.exists() && metadataFile.isFile()) {
+                        albumsWithMetadata.add(album);  // Add to list if metadata.json is found
+                    }
+                }
+            }
+        }
+        return albumsWithMetadata;
+    }
 }

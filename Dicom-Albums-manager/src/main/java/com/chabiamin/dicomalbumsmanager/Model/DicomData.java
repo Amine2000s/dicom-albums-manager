@@ -3,6 +3,8 @@ package com.chabiamin.dicomalbumsmanager.Model;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
+import java.io.File;
+
 public class DicomData {
 
     private final BooleanProperty isSelected;
@@ -10,14 +12,28 @@ public class DicomData {
     private final String patientId;
     private final String modality;
     private final String studyDate;
-
-    public DicomData(boolean isSelected, String fileName, String patientId, String modality, String studyDate) {
+    private final File file;
+    public DicomData(boolean isSelected, String fileName, String patientId, String modality, String studyDate, File file) {
         this.isSelected = new SimpleBooleanProperty(isSelected);
         this.fileName = fileName;
         this.patientId = patientId;
         this.modality = modality;
         this.studyDate = studyDate;
+        this.file = file;
     }
+
+    public boolean isIsSelected() {
+        return isSelected.get();
+    }
+
+    public BooleanProperty isSelectedProperty() {
+        return isSelected;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
     public BooleanProperty isselectedProperty() {
         return isSelected;
     }

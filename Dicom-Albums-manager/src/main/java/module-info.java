@@ -2,6 +2,7 @@ module com.chabiamin.dicomalbumsmanager {
     requires javafx.controls;
     requires javafx.fxml;
     requires dcm4che.core;
+    requires org.json;
 
 
     opens com.chabiamin.dicomalbumsmanager to javafx.fxml;

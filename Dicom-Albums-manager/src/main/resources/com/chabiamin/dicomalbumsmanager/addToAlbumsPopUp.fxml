@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="294.0" prefWidth="348.0" stylesheets="@Style/popup-style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chabiamin.dicomalbumsmanager.Controller.addToAlbumsPopUp">
+   <children>
+      <!-- Main VBox for layout structure -->
+      <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="384.0" spacing="10" styleClass="popup-container">
+
+         <!-- Browse section -->
+         <HBox alignment="CENTER_LEFT" spacing="10">
+            <TextField fx:id="directoryPathField" editable="false" prefHeight="30.0" prefWidth="266.0" styleClass="popup-label" text="Select Album Directory:" />
+            <Button fx:id="browseButton" styleClass="primary-button" text="Browse" />
+         </HBox>
+
+         <!-- ListView for showing available directories -->
+         <VBox>
+            <Label styleClass="popup-label" text="Available Albums:" />
+            <ListView fx:id="albumsListView" prefHeight="263.0" prefWidth="340.0" />
+         </VBox>
+
+         <!-- Action buttons -->
+         <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="addToAlbumButton" styleClass="secondary-button" text="Add to Album" />
+            <Button fx:id="createAlbumButton" styleClass="secondary-button" text="Create Album" />
+         </HBox>
+      </VBox>
+   </children>
+</AnchorPane>

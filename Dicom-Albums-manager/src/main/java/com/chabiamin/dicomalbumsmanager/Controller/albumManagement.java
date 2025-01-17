@@ -28,9 +28,6 @@ public class albumManagement implements Initializable {
                 directoryPathField.setText(selectedDirectory.getAbsolutePath());
 
 
-
-
-
             }
         });
 
