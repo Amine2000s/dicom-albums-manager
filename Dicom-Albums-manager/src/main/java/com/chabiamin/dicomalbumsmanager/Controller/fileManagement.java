@@ -78,6 +78,8 @@ public class fileManagement implements Initializable {
     @FXML
     Button clearButton ;
     //////////////////////////////////////////////////////////
+
+    int checkedfilesflag = 0 ; //flag to know if certain dicom files are checked
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         resultsTable.setEditable(true);
@@ -231,7 +233,10 @@ public class fileManagement implements Initializable {
         popupStage.show();
     }
 
-
+    public ArrayList<DicomData> getCheckedDicomFiles() {
+        //function that is responsible for retruning checked data 
+        return new ArrayList<>();
+    }
 }
 
 
