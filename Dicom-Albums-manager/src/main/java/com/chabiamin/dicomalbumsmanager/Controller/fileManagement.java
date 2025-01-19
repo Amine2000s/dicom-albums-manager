@@ -41,7 +41,7 @@ public class fileManagement implements Initializable {
     ////////////////////////////////////
     ///////////// Table view related  Components///////
     public static ArrayList<DicomData> dicomDataList = new ArrayList<>(); // represent the actual Data list in the table view
-    ObservableList<DicomData> dicomDataObservableListList = FXCollections.observableArrayList(dicomDataList); ; // represent the availlable list in the table view
+    public static ObservableList<DicomData> dicomDataObservableListList = FXCollections.observableArrayList(dicomDataList); ; // represent the availlable list in the table view
 
     @FXML
     TableView resultsTable ;
@@ -233,9 +233,14 @@ public class fileManagement implements Initializable {
         popupStage.show();
     }
 
-    public ArrayList<DicomData> getCheckedDicomFiles() {
-        //function that is responsible for retruning checked data 
-        return new ArrayList<>();
+    public static ArrayList<DicomData> getCheckedDicomFiles() {
+        //function that is responsible for retruning checked data
+        ArrayList<DicomData> checkedFileslist = new ArrayList<>();
+
+        for(DicomData file : dicomDataObservableListList){
+            if(file.isSelected()) checkedFileslist.add(file);
+        }
+        return checkedFileslist;
     }
 }
 

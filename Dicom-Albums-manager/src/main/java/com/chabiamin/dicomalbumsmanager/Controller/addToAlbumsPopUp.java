@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 import org.json.JSONObject;
 
 import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.dicomDataList;
+import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.getCheckedDicomFiles;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAlbumsWithMetadata;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAvailableDirectories;
 
@@ -90,7 +91,16 @@ public class addToAlbumsPopUp implements Initializable {
 
                 // Perform the logic to add DICOM files to the album directory
                 // (this is just a placeholder for your logic)
-                addDICOMFilesToDirectory(dicomFiles, selectedDirectory);
+                /**
+                 * hna ndir nta3 get checked data
+                 *
+                 * */
+                ArrayList<DicomData> selectedDicomFiles = getCheckedDicomFiles();
+                System.out.println("###############################################");
+                System.out.println("############### checked files are : ###");
+                for(DicomData file : selectedDicomFiles) System.out.println(file.toString());
+                System.out.println("###############################################");
+                addDICOMFilesToDirectory(selectedDicomFiles, selectedDirectory);
 
                 // Optionally: Show confirmation
                 showConfirmation("DICOM files have been added to the album!");
