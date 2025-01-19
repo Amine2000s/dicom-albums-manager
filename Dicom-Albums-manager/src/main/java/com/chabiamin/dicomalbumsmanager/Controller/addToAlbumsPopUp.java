@@ -1,6 +1,7 @@
 package com.chabiamin.dicomalbumsmanager.Controller;
 
 import com.chabiamin.dicomalbumsmanager.Model.DicomData;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -48,6 +49,9 @@ public class addToAlbumsPopUp implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
         // needs to filter and make sure the files with meta data (json file are only showen )
         browseButton.setOnAction(event -> {
 

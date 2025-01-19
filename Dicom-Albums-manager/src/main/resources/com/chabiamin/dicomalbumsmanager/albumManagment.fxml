@@ -35,9 +35,9 @@
         <!-- Content Section -->
         <HBox spacing="20" VBox.vgrow="ALWAYS">
             <!-- Album List Panel -->
-            <VBox prefWidth="200" spacing="10" styleClass="album-list-panel">
+            <VBox prefHeight="455.0" prefWidth="211.0" spacing="10" styleClass="album-list-panel">
                 <Label styleClass="section-label" text="Albums" />
-                <ListView fx:id="albumListView" VBox.vgrow="ALWAYS" />
+                <ListView fx:id="albumListView" prefHeight="426.0" prefWidth="213.0" VBox.vgrow="ALWAYS" />
             </VBox>
 
             <!-- Selected Album Details Panel -->
@@ -49,11 +49,11 @@
                     <Label fx:id="albumNameLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                     <!-- Second Row -->
-                    <Label text="Created:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <Label fx:id="albumDateLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                     <!-- Third Row -->
-                    <Label text="Images:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label text="images:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                     <Label fx:id="albumImageCountLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                     <columnConstraints>
