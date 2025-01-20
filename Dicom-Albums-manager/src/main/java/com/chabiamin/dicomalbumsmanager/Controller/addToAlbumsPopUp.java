@@ -27,7 +27,7 @@ import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.dicomDa
 import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.getCheckedDicomFiles;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAlbumsWithMetadata;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAvailableDirectories;
-import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.refreshListView;
+import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.*;
 
 public class addToAlbumsPopUp implements Initializable {
 
@@ -223,8 +223,9 @@ public class addToAlbumsPopUp implements Initializable {
     }
 
     // Method to show a confirmation message (could be a simple alert dialog)
+/*
     private void showConfirmation(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -236,7 +237,7 @@ public class addToAlbumsPopUp implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
+    }*/
 
     public void setResultsTable(TableView<DicomData> resultsTable) {
         this.resultsTable = resultsTable;

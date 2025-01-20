@@ -1,5 +1,6 @@
 package com.chabiamin.dicomalbumsmanager.utils;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 
 import java.io.File;
@@ -17,4 +18,20 @@ public class  viewUtils {
         }
         list.getItems().addAll(fileList);
         }
+
+    public static void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public static void showConfirmation(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

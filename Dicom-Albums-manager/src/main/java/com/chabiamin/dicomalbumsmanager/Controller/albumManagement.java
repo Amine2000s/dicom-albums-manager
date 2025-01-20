@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import java.util.zip.ZipOutputStream;
 
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.*;
-import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.refreshListView;
+import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.*;
 
 public class albumManagement implements Initializable {
 
@@ -221,27 +221,19 @@ public class albumManagement implements Initializable {
                             throw new RuntimeException(e);
                         }
                     }
+            });
 
-
-
-
+            deleteButton.setOnAction(event -> {
+                File selectedAlbum = (File) albumListView.getSelectionModel().getSelectedItem();
+                showConfirmation("are you that you are going to delete"+selectedAlbum.getName());
+                deleteFolder(selectedAlbum);
+                refreshListView(albumListView, new File(directoryPathField.getText()));
 
             });
+
+
     }
 
 
-    private void showConfirmation(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-    private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }

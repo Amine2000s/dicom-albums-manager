@@ -210,6 +210,38 @@ public class fileUtils {
         }
     }
 
+    public static void deleteFolder(File folder ){
+            if (!folder.exists()) {
+                System.out.println("The folder does not exist: " + folder.getAbsolutePath());
+            }
+
+            // Delete all files and subdirectories in the folder
+            File[] files = folder.listFiles();
+            if (files != null) { // Check if it's a directory
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        // Recursive call for subdirectory
+                        deleteFolder(file);
+                    } else {
+                        // Delete file
+                        if (!file.delete()) {
+                            System.err.println("Failed to delete file: " + file.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+
+            // Delete the folder itself
+             folder.delete();
+        }
 
 
-}
+
+
+    }
+
+
+
+
+
+
