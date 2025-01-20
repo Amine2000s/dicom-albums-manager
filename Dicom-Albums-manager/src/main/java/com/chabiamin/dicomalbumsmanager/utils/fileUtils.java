@@ -4,6 +4,8 @@ import com.chabiamin.dicomalbumsmanager.Model.DicomData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.dcm4che3.io.DicomInputStream;
+import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +15,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.dicomDataList;
 
@@ -163,5 +166,29 @@ public class fileUtils {
             }
         }
         return albumsWithMetadata;
+    }
+
+    public  static Map<String, Object> getAlbumMetadata(File file) throws IOException {
+
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException("The provided File object is not a directory.");
+        }
+
+        // Step 2: Locate the metadata.json file
+        File metadataFile = new File(file, "metadata.json");
+        if (!metadataFile.exists()) {
+            throw new IllegalArgumentException("metadata.json file not found in the directory: " + file.getPath());
+        }
+        // if file with meta data exists
+        if (metadataFile.exists() && metadataFile.isFile()) {
+
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String, Object> metadata = objectMapper.readValue(metadataFile, Map.class);
+            return metadata;
+
+        }
+
+
+        return null;
     }
 }

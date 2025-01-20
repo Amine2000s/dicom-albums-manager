@@ -3,6 +3,7 @@ module com.chabiamin.dicomalbumsmanager {
     requires javafx.fxml;
     requires dcm4che.core;
     requires org.json;
+    requires com.fasterxml.jackson.databind;
 
 
     opens com.chabiamin.dicomalbumsmanager to javafx.fxml;

@@ -50,7 +50,7 @@
 
                     <!-- Second Row -->
                     <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Label fx:id="albumDateLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label fx:id="albumDescLabel" styleClass="detail-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                     <!-- Third Row -->
                     <Label text="images:" GridPane.columnIndex="0" GridPane.rowIndex="2" />

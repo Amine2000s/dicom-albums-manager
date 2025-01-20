@@ -21,10 +21,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
-import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.fetchDicomData;
-import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAlbumsWithMetadata;
+import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.*;
 
 public class albumManagement implements Initializable {
 
@@ -61,6 +61,18 @@ public class albumManagement implements Initializable {
     @FXML
     Button viewImage ;
 
+    @FXML
+    Label albumNameLabel ;
+
+    @FXML
+    Label albumDescLabel;
+
+    @FXML
+    Label albumImageCountLabel ;
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -91,7 +103,16 @@ public class albumManagement implements Initializable {
             if (selectedFile != null) {
                 DicomDataObservableList = fetchDicomData(selectedFile.getAbsolutePath());
                 albumImagesTable.setItems(DicomDataObservableList);
-
+                try {
+                    Map<String, Object> info = getAlbumMetadata(selectedFile);
+                    albumNameLabel.setText(info.get("album_name").toString());
+                    albumDescLabel.setText(info.get("description").toString());
+                    File[] files = selectedFile.listFiles(File::isFile); // Only count regular files
+                    int no_of_files = files != null ? (files.length - 1) : 0;
+                    albumImageCountLabel.setText(String.valueOf(no_of_files));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
