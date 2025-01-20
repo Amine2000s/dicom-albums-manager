@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.*;
+import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.refreshListView;
 
 public class albumManagement implements Initializable {
 
@@ -86,8 +87,12 @@ public class albumManagement implements Initializable {
             File selectedDirectory = directoryChooser.showDialog(new Stage());
             if (selectedDirectory != null) {
                 directoryPathField.setText(selectedDirectory.getAbsolutePath());
-                ArrayList<File> list = getAlbumsWithMetadata(selectedDirectory);
-                albumListView.getItems().addAll(list);
+                /*i can put these 2 instruction under a function called reload listview
+                * first argument is the list view , second is the selected direcotry (file)
+                * */
+                /*ArrayList<File> list = getAlbumsWithMetadata(selectedDirectory);
+                albumListView.getItems().addAll(list);*/
+                refreshListView(albumListView,selectedDirectory);
                 //albumsObservableList =
               /*  dicomDataObservableListList = fetchDicomData(directoryPathField.getText());
                 resultsTable.setItems(dicomDataObservableListList);
@@ -179,8 +184,7 @@ public class albumManagement implements Initializable {
                     }
                     showAlert("Success", "Album created successfully!");
                     popupStage.close();  // Close the popup after successful creation
-
-                    // Optionally: Move or copy the DICOM files to the album directory
+                    refreshListView(albumListView, new File(directoryPathField.getText()));
                 });
 
                 cancelButton.setOnAction(e -> popupStage.close());

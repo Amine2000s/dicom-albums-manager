@@ -27,6 +27,7 @@ import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.dicomDa
 import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.getCheckedDicomFiles;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAlbumsWithMetadata;
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.getAvailableDirectories;
+import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.refreshListView;
 
 public class addToAlbumsPopUp implements Initializable {
 
@@ -182,7 +183,7 @@ public class addToAlbumsPopUp implements Initializable {
                     }
                     showAlert("Success", "Album created successfully!");
                     popupStage.close();  // Close the popup after successful creation
-
+                    refreshListView(albumsListView,new File(directoryPathField.getText()));
                 // Optionally: Move or copy the DICOM files to the album directory
             });
 

@@ -135,6 +135,7 @@ public class fileManagement implements Initializable {
             File selectedDirectory = directoryChooser.showDialog(new Stage());
             if(selectedDirectory!= null){
                 directoryPathField.setText(selectedDirectory.getAbsolutePath());
+
                 dicomDataObservableListList = fetchDicomData(directoryPathField.getText());
                 resultsTable.setItems(dicomDataObservableListList);
             }
