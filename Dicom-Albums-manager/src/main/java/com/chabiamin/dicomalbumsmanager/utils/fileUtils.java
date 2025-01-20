@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.*;
 
 import static com.chabiamin.dicomalbumsmanager.Controller.fileManagement.dicomDataList;
 
@@ -191,4 +192,24 @@ public class fileUtils {
 
         return null;
     }
+
+    public static void zipSingleFile(File file, String parentFolder, ZipOutputStream zos) throws IOException {
+        try (FileInputStream fis = new FileInputStream(file)) {
+            String zipEntryName = parentFolder.isEmpty() ? file.getName() : parentFolder + "/" + file.getName();
+            ZipEntry zipEntry = new ZipEntry(zipEntryName);
+            zos.putNextEntry(zipEntry);
+
+            // Write file data to zip entry
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = fis.read(buffer)) >= 0) {
+                zos.write(buffer, 0, length);
+            }
+
+            zos.closeEntry();
+        }
+    }
+
+
+
 }

@@ -15,14 +15,13 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.zip.ZipOutputStream;
 
 import static com.chabiamin.dicomalbumsmanager.utils.fileUtils.*;
 import static com.chabiamin.dicomalbumsmanager.utils.viewUtils.refreshListView;
@@ -191,6 +190,42 @@ public class albumManagement implements Initializable {
                 Scene scene = new Scene(vbox, 400, 300);
                 popupStage.setScene(scene);
                 popupStage.show();
+            });
+
+
+            exportButton.setOnAction(event -> {
+                DirectoryChooser directoryChooser = new DirectoryChooser();
+                directoryChooser.setTitle("Select Directory");
+                File selectedDirectory = directoryChooser.showDialog(new Stage());
+                File selectedAlbum = (File) albumListView.getSelectionModel().getSelectedItem();
+                /*System.out.println("#####################################");
+                System.out.println("######### absolutePath =  "+selectedDirectory.getAbsolutePath()+"####");
+                System.out.println("######### filename =  "+selectedAlbum.getName()+"####");
+                System.out.println("######### argument  =  "+selectedDirectory.getAbsolutePath()+"\\"+selectedAlbum.getName()+".zip   "+"####");
+                System.out.println("#####################################");*/
+                    if (selectedDirectory != null && selectedAlbum!=null) {
+
+                        try (FileOutputStream fos = new FileOutputStream(selectedDirectory.getAbsolutePath()+"\\"+selectedAlbum.getName()+".zip");
+
+                             ZipOutputStream zos = new ZipOutputStream(fos))
+                        {
+
+                            File[] files = selectedAlbum.listFiles();
+                            for (File file : files) {
+                                    // Add files to the zip
+                                    zipSingleFile(file,"",zos);
+                                }
+
+                            System.out.println("zip extraction done perfectly ");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+
+
+
+
+
             });
     }
 
