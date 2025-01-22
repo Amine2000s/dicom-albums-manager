@@ -97,9 +97,27 @@ Cet outil est conçu pour permettre aux chercheurs et professionnels de la sant�
 - **Gestion des métadonnées** : Les métadonnées des images DICOM peuvent être affichées et utilisées pour des requêtes.
 
 ## **Prérequis**
-- **Java 8 ou supérieur**  
-- **Bibliothèques nécessaires** :
-  - JavaFX  
+- **Version de Java** : 19
+- **Outil de construction** : Maven 3.6.0 ou supérieur
+- **SDK JavaFX** : Requis (inclus via les dépendances Maven)
+
+## **Dépendances**
+### **Dépendances principales**
+- **JavaFX Controls** : `org.openjfx:javafx-controls:19.0.2`
+- **JavaFX FXML** : `org.openjfx:javafx-fxml:19.0.2`
+- **Bibliothèque DICOM** : `org.dcm4che:dcm4che-core:5.23.3`
+- **Traitement JSON** : `org.json:json:20250107`
+- **Jackson Core** : `com.fasterxml.jackson.core:jackson-core:2.13.1`
+- **Jackson Databind** : `com.fasterxml.jackson.core:jackson-databind:2.13.1`
+- **Jackson Annotations** : `com.fasterxml.jackson.core:jackson-annotations:2.13.1`
+
+### **Dépendances de test**
+- **API JUnit 5** : `org.junit.jupiter:junit-jupiter-api:5.9.2`
+- **Moteur JUnit 5** : `org.junit.jupiter:junit-jupiter-engine:5.9.2`
+
+### **Plugins de construction**
+- **Maven Compiler Plugin** : `org.apache.maven.plugins:maven-compiler-plugin:3.11.0`
+- **JavaFX Maven Plugin** : `org.openjfx:javafx-maven-plugin:0.0.8`
 
 ## **Contribution**
 Les contributions sont les bienvenues ! Si vous avez des suggestions ou des améliorations à proposer, n'hésitez pas à ouvrir une **pull request**.
