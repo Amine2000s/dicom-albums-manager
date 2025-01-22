@@ -37,9 +37,27 @@ This tool is designed to allow researchers and healthcare professionals to creat
 - **Metadata Management**: DICOM image metadata can be displayed and used for queries.
 
 ## **Prerequisites**
-- **Java 8 or higher**  
-- **Required Libraries**:
-  - JavaFX  
+- **Java Version**: 19
+- **Build Tool**: Maven 3.6.0 or higher
+- **JavaFX SDK**: Required (included via Maven dependencies)
+
+## **Dependencies**
+### **Core Dependencies**
+- **JavaFX Controls**: `org.openjfx:javafx-controls:19.0.2`
+- **JavaFX FXML**: `org.openjfx:javafx-fxml:19.0.2`
+- **DICOM Library**: `org.dcm4che:dcm4che-core:5.23.3`
+- **JSON Processing**: `org.json:json:20250107`
+- **Jackson Core**: `com.fasterxml.jackson.core:jackson-core:2.13.1`
+- **Jackson Databind**: `com.fasterxml.jackson.core:jackson-databind:2.13.1`
+- **Jackson Annotations**: `com.fasterxml.jackson.core:jackson-annotations:2.13.1`
+
+### **Testing Dependencies**
+- **JUnit 5 API**: `org.junit.jupiter:junit-jupiter-api:5.9.2`
+- **JUnit 5 Engine**: `org.junit.jupiter:junit-jupiter-engine:5.9.2`
+
+### **Build Plugins**
+- **Maven Compiler Plugin**: `org.apache.maven.plugins:maven-compiler-plugin:3.11.0`
+- **JavaFX Maven Plugin**: `org.openjfx:javafx-maven-plugin:0.0.8`
 
 ## **Contribution**
 Contributions are welcome! If you have suggestions or improvements, feel free to open a **pull request**.
