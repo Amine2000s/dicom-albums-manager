@@ -62,6 +62,9 @@ This tool is designed to allow researchers and healthcare professionals to creat
 ## **Contribution**
 Contributions are welcome! If you have suggestions or improvements, feel free to open a **pull request**.
 
+
+# **Screenshots / Captures d'ecrans
+![User Interface1](./screenshots/main.png
 ---
 
 # **Outil de Gestion des Albums DICOM**  
