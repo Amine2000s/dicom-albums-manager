@@ -71,8 +71,8 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 ![User Interface5](./screenshots/albumCreation.png)
 ![User Interface6](./screenshots/metaDataQueryAlbumCreation.png)
 ![User Interface7](./screenshots/albumManagement.png)
-![User Interface8](./screenshots/albumManagement2.png)
-![User Interface9](./screenshots/albumManagement3.png)
+![User Interface8](./screenshots/albumManagment2.png)
+![User Interface9](./screenshots/albumManagment2.png)
 ![User Interface10](./screenshots/albumManagmentCreation.png)
 
 ---
