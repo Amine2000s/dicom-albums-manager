@@ -1,7 +1,7 @@
 # **Language Selection**
 - [English](#dicom-album-management-tool)
 - [Français](#outil-de-gestion-des-albums-dicom)
-
+- [Screenshots / Captures d'ecran](Screenshots-/-Captures-d'ecrans)
 ---
 
 # **DICOM Album Management Tool**  
