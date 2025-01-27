@@ -65,6 +65,16 @@ Contributions are welcome! If you have suggestions or improvements, feel free to
 
 # **Screenshots / Captures d'ecrans**
 ![User Interface1](./screenshots/main.png)
+![User Interface2](./screenshots/metadataQuery.png)
+![User Interface3](./screenshots/metadataQuery2.png)
+![User Interface4](./screenshots/metadataQuery3.png)
+![User Interface5](./screenshots/albumCreation.png)
+![User Interface6](./screenshots/metaDataQueryAlbumCreation.png)
+![User Interface7](./screenshots/albumManagement.png)
+![User Interface8](./screenshots/albumManagement2.png)
+![User Interface9](./screenshots/albumManagement3.png)
+![User Interface10](./screenshots/albumManagmentCreation.png)
+
 ---
 
 # **Outil de Gestion des Albums DICOM**  
